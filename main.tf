@@ -156,6 +156,6 @@ resource "aws_instance" "web" {
 
   tags = {
     "terraform" = "true"
-    "Name"      = "Web Server"
+    Name = "Web Server"
   }
 }
