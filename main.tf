@@ -146,3 +146,16 @@ resource "aws_instance" "web_server" {
 resource "random_string" "random" {
   length = 10
 }
+
+resource "aws_instance" "web" {
+  ami           = "ami-079db87dc4c10ac91"
+  instance_type = "t2.micro"
+
+  subnet_id              = aws_subnet.public_subnets["public_subnet_1"].id
+  vpc_security_group_ids = ["sg-0ecdd14343e6fa8b3"]
+
+  tags = {
+    "terraform" = "true"
+    "Name"      = "Web Server"
+  }
+}
